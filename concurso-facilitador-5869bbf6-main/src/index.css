@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 100 30% 98%;
+    --foreground: 120 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 120 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 120 10% 15%;
+
+    --primary: 145 40% 35%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 120 26% 85%;
+    --secondary-foreground: 145 40% 25%;
+
+    --muted: 120 20% 96%;
+    --muted-foreground: 120 10% 40%;
+
+    --accent: 140 20% 94%;
+    --accent-foreground: 145 40% 25%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 120 10% 90%;
+    --input: 120 10% 90%;
+    --ring: 145 40% 35%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 120 10% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 120 10% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 120 10% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 145 40% 40%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 120 20% 30%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 120 10% 18%;
+    --muted-foreground: 120 10% 70%;
+
+    --accent: 120 20% 18%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 120 10% 20%;
+    --input: 120 10% 20%;
+    --ring: 145 40% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    @apply antialiased scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold tracking-tight;
+  }
+}
+
+/* Glassmorphism effect */
+.glass {
+  @apply bg-white/70 dark:bg-black/70 backdrop-blur-lg border border-white/20 dark:border-black/20;
+}
+
+/* Soft shadow */
+.shadow-soft {
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
+}
+
+/* Staggered animation for lists */
+.stagger-animation > * {
+  animation: fade-up 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-animation > *:nth-child(6) { animation-delay: 0.6s; }
+.stagger-animation > *:nth-child(7) { animation-delay: 0.7s; }
+.stagger-animation > *:nth-child(8) { animation-delay: 0.8s; }
+.stagger-animation > *:nth-child(9) { animation-delay: 0.9s; }
+.stagger-animation > *:nth-child(10) { animation-delay: 1s; }
+
+/* Loading transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms, transform 500ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 500ms, transform 500ms;
+}
+
+/* Green gradients */
+.forest-gradient {
+  @apply bg-gradient-to-r from-forest-dark via-forest to-forest-light;
+}
+
+/* Button hover effects with forest */
+.button-hover-forest {
+  @apply hover:bg-forest hover:text-white transition-colors duration-300;
+}
